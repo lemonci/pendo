@@ -1,0 +1,7 @@
+#Cargo code
+from scipy import misc
+face = misc.face()
+misc.imsave('00_01.png', face)
+face = misc.imread('00_01.png')
+type(face)   
+face.shape, face.dtype
