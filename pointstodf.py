@@ -20,6 +20,7 @@ real = ast.literal_eval(real)
             for axis in point:
                 print(type(axis))
 '''
+
 #convert the hand writing data into dataframe
 #accessment level
 df_a = pd.DataFrame(columns=['character','stroke','X','Y','Z'])
@@ -38,7 +39,6 @@ for char in real:
     df_c.insert(0, 'character', c_count)
     df_a = df_a.append(df_c)
     c_count += 1
-print(df_a)
 
 #get max and min values and join them to a new dataframe
 df_max = pd.DataFrame(columns=['character','stroke','Xmax','Ymax','Zmax'])
