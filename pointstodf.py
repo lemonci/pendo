@@ -39,3 +39,21 @@ for char in real:
     df_a = df_a.append(df_c)
     c_count += 1
 print(df_a)
+
+#get max and min values and join them to a new dataframe
+df_max = pd.DataFrame(columns=['character','stroke','Xmax','Ymax','Zmax'])
+cmax = []
+cmin = []
+for char in range(0,90):
+    subdf=df_a[ df_a.iloc[:,0]  == char].copy()
+    lmax = list(subdf.max())
+    lmin = list(subdf.min())
+    cmax.append(lmax)
+    cmin.append(lmin)
+df_max = pd.DataFrame(cmax, columns=['character','stroke','Xmax','Ymax','Zmax'])
+df_max = df_max.drop(['stroke','Zmax'], axis=1)
+df_min = pd.DataFrame(cmin, columns=['character','stroke','Xmin','Ymin','Zmin'])
+df_min = df_min.drop(['character','stroke','Zmin'], axis=1)
+df_out = df_max.join(df_min)
+df_out = df_out.round(0).astype(int)
+
