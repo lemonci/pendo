@@ -57,3 +57,7 @@ df_min = df_min.drop(['character','stroke','Zmin'], axis=1)
 df_out = df_max.join(df_min)
 df_out = df_out.round(0).astype(int)
 
+#Calculate spacing
+df_out['Xspace'] = df_out['Xmin']-df_out['Xmax'].shift(1)
+df_out['Xspace'] = df_out['Xspace'].mask(df_out['Xspace'] < -10000)
+df_out['Yspace'] = df_out['Ymin']-df_out['Ymax'].shift(9)
