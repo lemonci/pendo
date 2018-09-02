@@ -21,7 +21,7 @@ def readpkl(filename):
 #    df = df.round(0).astype(int)
     return dic
 
-data = readpkl('80.pkl')
+data = readpkl('**.pkl')
 # draw the image7
 from tkinter import *
 
