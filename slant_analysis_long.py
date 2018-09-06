@@ -11,7 +11,7 @@ def readpkl(filename):
     df = df.round(0).astype(int)
     return df
 for fil in filelist:
-    raw = readpkl('filename')
+    raw = readpkl(fil)
     new = pd.DataFrame(columns = ['CHARACTER', 'STROKE', 'POINT','X', 'Y'])
     new = new.append(raw.iloc[0])
     count = 0
