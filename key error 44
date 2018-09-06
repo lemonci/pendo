@@ -1,0 +1,194 @@
+---------------------------------------------------------------------------
+UnpicklingError                           Traceback (most recent call last)
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in try_read(path, encoding)
+    165                 # We want to silencce any warnings about, e.g. moved modules.
+--> 166                 return read_wrapper(lambda f: pkl.load(f))
+    167         except Exception:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_wrapper(func)
+    148         try:
+--> 149             return func(f)
+    150         finally:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in <lambda>(f)
+    165                 # We want to silencce any warnings about, e.g. moved modules.
+--> 166                 return read_wrapper(lambda f: pkl.load(f))
+    167         except Exception:
+
+UnpicklingError: invalid load key, ','.
+
+During handling of the above exception, another exception occurred:
+
+KeyError                                  Traceback (most recent call last)
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in try_read(path, encoding)
+    170                 return read_wrapper(
+--> 171                     lambda f: pc.load(f, encoding=encoding, compat=False))
+    172             # compat pickle
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_wrapper(func)
+    148         try:
+--> 149             return func(f)
+    150         finally:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in <lambda>(f)
+    170                 return read_wrapper(
+--> 171                     lambda f: pc.load(f, encoding=encoding, compat=False))
+    172             # compat pickle
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\compat\pickle_compat.py in load(fh, encoding, compat, is_verbose)
+    211 
+--> 212         return up.load()
+    213     except:
+
+~\AppData\Local\Continuum\anaconda3\lib\pickle.py in load(self)
+   1049                 assert isinstance(key, bytes_types)
+-> 1050                 dispatch[key[0]](self)
+   1051         except _Stop as stopinst:
+
+KeyError: 44
+
+During handling of the above exception, another exception occurred:
+
+KeyError                                  Traceback (most recent call last)
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_pickle(path, compression)
+    176     try:
+--> 177         return try_read(path)
+    178     except:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in try_read(path, encoding)
+    174                 return read_wrapper(
+--> 175                     lambda f: pc.load(f, encoding=encoding, compat=True))
+    176     try:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_wrapper(func)
+    148         try:
+--> 149             return func(f)
+    150         finally:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in <lambda>(f)
+    174                 return read_wrapper(
+--> 175                     lambda f: pc.load(f, encoding=encoding, compat=True))
+    176     try:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\compat\pickle_compat.py in load(fh, encoding, compat, is_verbose)
+    211 
+--> 212         return up.load()
+    213     except:
+
+~\AppData\Local\Continuum\anaconda3\lib\pickle.py in load(self)
+   1049                 assert isinstance(key, bytes_types)
+-> 1050                 dispatch[key[0]](self)
+   1051         except _Stop as stopinst:
+
+KeyError: 44
+
+During handling of the above exception, another exception occurred:
+
+UnpicklingError                           Traceback (most recent call last)
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in try_read(path, encoding)
+    165                 # We want to silencce any warnings about, e.g. moved modules.
+--> 166                 return read_wrapper(lambda f: pkl.load(f))
+    167         except Exception:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_wrapper(func)
+    148         try:
+--> 149             return func(f)
+    150         finally:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in <lambda>(f)
+    165                 # We want to silencce any warnings about, e.g. moved modules.
+--> 166                 return read_wrapper(lambda f: pkl.load(f))
+    167         except Exception:
+
+UnpicklingError: invalid load key, ','.
+
+During handling of the above exception, another exception occurred:
+
+KeyError                                  Traceback (most recent call last)
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in try_read(path, encoding)
+    170                 return read_wrapper(
+--> 171                     lambda f: pc.load(f, encoding=encoding, compat=False))
+    172             # compat pickle
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_wrapper(func)
+    148         try:
+--> 149             return func(f)
+    150         finally:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in <lambda>(f)
+    170                 return read_wrapper(
+--> 171                     lambda f: pc.load(f, encoding=encoding, compat=False))
+    172             # compat pickle
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\compat\pickle_compat.py in load(fh, encoding, compat, is_verbose)
+    211 
+--> 212         return up.load()
+    213     except:
+
+~\AppData\Local\Continuum\anaconda3\lib\pickle.py in load(self)
+   1049                 assert isinstance(key, bytes_types)
+-> 1050                 dispatch[key[0]](self)
+   1051         except _Stop as stopinst:
+
+KeyError: 44
+
+During handling of the above exception, another exception occurred:
+
+KeyError                                  Traceback (most recent call last)
+<ipython-input-1-06b2ff5fec54> in <module>()
+     15 
+     16 for fil in filelist:
+---> 17     raw = readpkl(fil)
+     18     new = pd.DataFrame(columns = ['CHARACTER', 'STROKE', 'POINT','X', 'Y'])
+     19     new = new.append(raw.iloc[0])
+
+<ipython-input-1-06b2ff5fec54> in readpkl(filename)
+      8 #read binary files function
+      9 def readpkl(filename):
+---> 10     df = pd.read_pickle(filename)
+     11     df.columns = ['X', 'Y', 'Z', 'POINT', 'STROKE', 'CHARACTER', 'SAMPLE']
+     12     df = df[['CHARACTER', 'STROKE', 'POINT','X', 'Y']]
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_pickle(path, compression)
+    178     except:
+    179         if PY3:
+--> 180             return try_read(path, encoding='latin1')
+    181         raise
+    182 
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in try_read(path, encoding)
+    173             except:
+    174                 return read_wrapper(
+--> 175                     lambda f: pc.load(f, encoding=encoding, compat=True))
+    176     try:
+    177         return try_read(path)
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in read_wrapper(func)
+    147                             is_text=False)
+    148         try:
+--> 149             return func(f)
+    150         finally:
+    151             for _f in fh:
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\io\pickle.py in <lambda>(f)
+    173             except:
+    174                 return read_wrapper(
+--> 175                     lambda f: pc.load(f, encoding=encoding, compat=True))
+    176     try:
+    177         return try_read(path)
+
+~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\compat\pickle_compat.py in load(fh, encoding, compat, is_verbose)
+    210         up.is_verbose = is_verbose
+    211 
+--> 212         return up.load()
+    213     except:
+    214         raise
+
+~\AppData\Local\Continuum\anaconda3\lib\pickle.py in load(self)
+   1048                     raise EOFError
+   1049                 assert isinstance(key, bytes_types)
+-> 1050                 dispatch[key[0]](self)
+   1051         except _Stop as stopinst:
+   1052             return stopinst.value
+
+KeyError: 44
